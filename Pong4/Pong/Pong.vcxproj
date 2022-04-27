@@ -152,12 +152,14 @@
     <ClCompile Include="MainMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="artifact.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="character.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Paddle.h" />
+    <ClInclude Include="particles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

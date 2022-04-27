@@ -1,25 +1,16 @@
 ﻿  MainMenu.cpp
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\character.h(39,42): warning C4305: 'initializing': truncation from 'double' to 'const float'
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Item.h(58,13): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\character.h(39,42): warning C4305: 'initializing': truncation from 'double' to 'const float'
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(61,13): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Item.h(59,13): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(62,13): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Item.h(79,18): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-          and
-          [
-              T=int
-          ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Item.h(80,18): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(82,18): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=float
@@ -28,16 +19,7 @@ C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Item.h(80,18): warning C4244: '=': co
           [
               T=int
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Item.h(95,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Item.h(96,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\Coin.h(23,1): warning C4305: 'argument': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(112,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(112,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(228,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(83,18): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=float
@@ -46,7 +28,25 @@ C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(228,45): warning C4244: 
           [
               T=int
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(233,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(102,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(103,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(109,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(110,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(116,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(117,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\Coin.h(23,1): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\artifact.h(23,1): warning C4305: 'argument': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(128,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(128,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(279,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=float
@@ -55,29 +55,38 @@ C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(233,45): warning C4244: 
           [
               T=int
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(341,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(284,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(342,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          and
+          [
+              T=int
+          ]
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(393,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(343,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(394,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\grizz\OneDrive\Desktop\Pong4\Pong\MainMenu.cpp(344,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(395,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(396,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
   Generating code
-  1 of 321 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 370 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Pong.vcxproj -> C:\Users\grizz\OneDrive\Desktop\Pong4\Release\Pong.exe
+  Pong.vcxproj -> D:\PA9_Game\PA9WithCoins\Pong4\Release\Pong.exe

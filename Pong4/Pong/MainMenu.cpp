@@ -1,6 +1,10 @@
 #include"MainMenu.h"
 #include"character.h"
 #include "Coin.h"
+#include "artifact.h"
+#include "particles.h"
+
+
 MainMenu::MainMenu(float width, float height) {
 
 	if (!font.loadFromFile("Fonts/Freedom.ttf")) {
@@ -25,6 +29,8 @@ MainMenu::MainMenu(float width, float height) {
 	mainMenu[2].setString("Exit");
 	mainMenu[2].setCharacterSize(64);
 	mainMenu[2].setPosition(150, 450);
+
+
 
 	MainMenuSelected = -1;
 }
@@ -64,7 +70,7 @@ void MainMenu::MoveDown() {
 	}
 }
 
-void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidth, int windowHeight) {
+int runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidth, int windowHeight) {
 	window2.close();
 	//init game 
 	float gridSizeF = 64.f;
@@ -79,9 +85,10 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 	sf::Vector2f characterPosWindow;
 	sf::Vector2i characterPosGrid;
 
-	sf::Text text;
 	sf::Font font;
 	font.loadFromFile("Fonts/Arial.ttf");
+
+	/*sf::Text text;
 	text.setCharacterSize(30);
 	text.setFillColor(sf::Color::Green);
 	text.setFont(font);
@@ -93,16 +100,25 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 	textCoin.setFillColor(sf::Color::Green);
 	textCoin.setFont(font);
 	textCoin.setPosition(20.f, 50.f);
-	textCoin.setString("Test");
-
+	textCoin.setString("Test");*/
 
 
 	sf::Text score;
 	score.setCharacterSize(30);
 	score.setFillColor(sf::Color::Green);
 	score.setFont(font);
-	score.setPosition(20.f, 80.f);
+	score.setPosition(20.f, 50.f);
 	score.setString("Test");
+
+	sf::Text times; 
+	times.setCharacterSize(30);
+	times.setFillColor(sf::Color::Green);
+	times.setFont(font);
+	times.setPosition(20.f, 20.f);
+	times.setString("Test");
+
+
+
 
 	//init window
 
@@ -178,18 +194,44 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 	coins.push_back(coin); //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	sf::Vector2f NULLCase = { NULL, NULL }; 
+
+	//artifact
+	sf::Vector2i artifactGridPos;
+	Artifact artifact; 
+	artifact.spawn();
+	sf::Clock clock;
+	sf::Time elapsed;
+	bool hasArtifact = false; 
+	bool spawnArtifact = false;
+	
+	//hiding
+
+	sf::RectangleShape rect;
 	
 
-	//collision
+	//timer
+	sf::Clock gameClock;
+	sf::Time gameElapsed;
 
-	sf::FloatRect NextPos;
+	//Particles
+	ParticleSystem speedParticles(10000);
+	speedParticles.setScale({ 1,1 });
+	sf::Clock particleClock; 
+	sf::Time particleElapsed; 
+	bool spawnParticles = false;
 
+
+
+	//Score
 	int SCORE = 0;
 
 
 	//Time
 
-	sf::Time second = sf::seconds(0.01f); 
+	sf::Time speedBuffLength = sf::seconds(10.0f); 
+	sf::Time ArtifactSpawnCooldown = sf::seconds(20.f);
+	sf::Time gameLength = sf::seconds(100.f);
+	sf::Time timeRemaining = sf::seconds(100.0f);
 
 
 	//tile selctor
@@ -198,11 +240,13 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 	//tileSelector.setFillColor(sf::Color::Transparent);
 	//tileSelector.setOutlineThickness(1.f);
 	//tileSelector.setOutlineColor(sf::Color::Green);
-
+	gameClock.restart();
 	while (window.isOpen())
 	{
 		//Update dt
 		dt = dtClock.restart().asSeconds();
+		 
+		
 
 		//update mouse positions
 		//mousePosScreen = sf::Mouse::getPosition();
@@ -217,6 +261,13 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 		//}
 
 		//grid position of view for location of character
+		gameElapsed = gameClock.getElapsedTime();
+		timeRemaining = gameLength;
+		timeRemaining -= gameElapsed;
+		std::cout << gameElapsed.asSeconds() << std::endl;
+		if (gameElapsed.asSeconds() >= gameLength.asSeconds()) {
+			window.close();
+		}
 		characterPosWindow = view.getCenter();
 
 		window.setView(view);
@@ -238,21 +289,22 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 		/*tileSelector.setPosition(mousePosGrid.x * gridSizeF, mousePosGrid.y * gridSizeF);*/
 		sf::Vector2f dir = { 0.0, 0.0 };
 		//update ui
-		std::stringstream ss;
-		ss << /*"Screen: " << mousePosScreen.x << " " << mousePosScreen.y << "\n"
-			<< "Window: " << mousePosWindow.x << " " << mousePosWindow.y << "\n"
-			<< "View: " << mousePosView.x << " " << mousePosView.y << "\n"
-			<< "Grid: " << mousePosGrid.x << " " << mousePosGrid.y << "\n"*/
+		/*std::stringstream ss;
+		ss << 
 			"Character grid: " << characterPosGrid.x << " " << characterPosGrid.y << "\n";
 		text.setString(ss.str());
 
 		std::stringstream cs; 
 		cs << "Coin grid: " << coinGridPos.x << " " << coinGridPos.y << "\n";
-		textCoin.setString(cs.str());
+		textCoin.setString(cs.str());*/
 
 		std::stringstream sss;
 		sss << "Score: " << SCORE << "\n";
 		score.setString(sss.str());
+
+		std::stringstream ssss;
+		ssss << "Time Remaining: " << timeRemaining.asSeconds() << "\n"; 
+		times.setString(ssss.str());
 
 		//events
 		sf::Event event;
@@ -378,7 +430,8 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 		}
 
 
-
+		
+		 
 
 		if (coins.size() < 7) {
 			coin.spawn();
@@ -393,6 +446,8 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 			
 			if (coinGridPos == characterPosGrid) { 
 				coin.spawn(); 
+				
+				
 				//coin.deleteItem(); 
 				
 				SCORE++;
@@ -405,6 +460,45 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 
 		}
 
+		artifactGridPos = artifact.itemGridPos();
+
+		if (artifactGridPos == characterPosGrid) {
+			clock.restart();
+			viewSpeed += 150;
+			hasArtifact = true;
+			spawnArtifact = true;
+			artifact.deleteItem();
+			spawnParticles = true; 
+
+		}
+
+		if (hasArtifact == true) {
+			elapsed = clock.getElapsedTime();
+			 
+			if (elapsed.asSeconds() >= speedBuffLength.asSeconds()) {
+				viewSpeed -= 150;
+				hasArtifact = false;
+				spawnParticles = false;
+			}
+		}
+
+		if (spawnArtifact == true) {
+			elapsed = clock.getElapsedTime();
+			
+			if (elapsed.asSeconds() >= ArtifactSpawnCooldown.asSeconds()) {
+				artifact.spawn();
+				spawnArtifact = false;
+				
+			}
+		}
+
+		//Particles
+		if (spawnParticles == true) {
+			speedParticles.setEmitter({ model.getPos().x + 32,model.getPos().y + 32 });
+
+			particleElapsed = particleClock.restart();
+			speedParticles.update(particleElapsed);
+		}
 		
 		// to do:
 
@@ -428,21 +522,30 @@ void runGame(sf::RenderWindow& window, sf::RenderWindow& window2, int windowWidt
 			i.draw(window);
 
 		}
+		artifact.draw(window); 
 		
+
+		rect.setFillColor(sf::Color::Black);
+		rect.setPosition(1400, 900); 
+		rect.setSize({ 64,64 });
+		window.draw(rect); 
+
 
 		window.setView(window.getDefaultView()); 
 
-	
+		if (spawnParticles == true) {
+			window.draw(speedParticles);
+		}
+		model.draw(window); 
 		
-		model.draw(window);
-		
-		window.draw(text);
-		window.draw(textCoin);
+		//window.draw(text);
+		//window.draw(textCoin);
 		window.draw(score);
+		window.draw(times);  
 
 		//finished
 		window.display();
 
-	}
-
+	} 
+	return SCORE;  
 }

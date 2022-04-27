@@ -15,10 +15,13 @@ private:
 
 public:
 
+	
+
 	Item(const sf::Vector2f& newPos , const string textureLocation ) {
 		pos = newPos;
 		texture.loadFromFile(textureLocation); 
 		sprite.setTexture(texture);   
+		
 	}
 	Item() = default; 
 
@@ -83,22 +86,41 @@ public:
 
 	void deleteItem() {
 		pos = { 1400, 900 };
-		sprite.setColor(sf::Color::Black);  
+		//sprite.setColor(sf::Color::Black);  
 		updateSprite();
 	}
 
 	void spawn() {
+		int howToSpawn = 0;
 		float x = 0, y = 0; 
 		bool valid = false;
 
-		while (valid == false) {
-			x = rand() % 21;
-			y = rand() % 21;
-			valid = checkSpawn({x,y });
-		} 
+		howToSpawn = rand() % 6 + 1;
+
+		if (howToSpawn == 3 || howToSpawn == 4) {
+			while (valid == false) {
+				x = rand() % 21;
+				y = rand() % 21;
+				valid = checkSpawn({ x,y });
+			}
+		}
+		else if (howToSpawn == 2 || howToSpawn == 6) {
+			while (valid == false) {
+				x = rand() % 21;
+				y = rand() % 21;
+				valid = checkSpawn({ x,0 });
+			}
+		}
+		else if (howToSpawn == 1 || howToSpawn == 5) {
+			while (valid == false) {
+				x = rand() % 21;
+				y = rand() % 21;
+				valid = checkSpawn({ 0,y }); 
+			}
+		}
 
 		//setPos({ 7* 64.0f,4* 64.f });
-
+		//sprite.setTexture(texture); 
 		setPos({ x * 64.0f,y * 64.0f });
 		updateSprite();
 	}
