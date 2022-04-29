@@ -1,4 +1,4 @@
-﻿  MainMenu.cpp
+﻿  main.cpp
 D:\PA9_Game\PA9WithCoins\Pong4\Pong\character.h(39,42): warning C4305: 'initializing': truncation from 'double' to 'const float'
 D:\PA9_Game\PA9WithCoins\Pong4\Pong\Item.h(61,13): warning C4244: '=': conversion from 'const T' to 'int', possible loss of data
           with
@@ -44,49 +44,20 @@ D:\PA9_Game\PA9WithCoins\Pong4\Pong\artifact.h(23,1): warning C4305: 'argument':
           [
               T=float
           ]
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(128,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(128,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(279,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\main.cpp(14,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\main.cpp(24,52): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
-              T=float
+              T=unsigned int
           ]
-          and
-          [
-              T=int
-          ]
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(284,45): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+D:\PA9_Game\PA9WithCoins\Pong4\Pong\main.cpp(24,34): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
           with
           [
-              T=float
-          ]
-          and
-          [
-              T=int
-          ]
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(393,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(394,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(395,42): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\PA9_Game\PA9WithCoins\Pong4\Pong\MainMenu.cpp(396,40): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
+              T=unsigned int
           ]
   Generating code
-  1 of 370 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  4 of 376 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Pong.vcxproj -> D:\PA9_Game\PA9WithCoins\Pong4\Release\Pong.exe

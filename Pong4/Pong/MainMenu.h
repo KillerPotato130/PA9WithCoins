@@ -3,6 +3,11 @@
 #include <iostream>
 #include<sstream>
 
+#include"character.h"
+#include "Coin.h"
+#include "artifact.h"
+#include "particles.h"
+
 #define MAX_MAIN_MENU 3
 
 class MainMenu {

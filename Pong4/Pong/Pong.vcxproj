@@ -160,6 +160,7 @@
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="particles.h" />
+    <ClInclude Include="Tests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

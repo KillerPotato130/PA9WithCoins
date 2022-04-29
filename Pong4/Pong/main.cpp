@@ -8,11 +8,17 @@
 
 #include "MainMenu.h"
 #include "Coin.h"
+#include "Tests.h"
 
 int main(void) {
 	srand(time(NULL)); 
 	const int windowWidth = 960;
 	const int windowHeight = 540;
+
+	//Run tests
+	Tests tests;
+	tests.runTests(); 
+
 	//make a window
 	sf::RenderWindow MENU(sf::VideoMode(windowWidth, windowHeight), "Main Menu", sf::Style::Default);
 	MainMenu mainMenu(MENU.getSize().x, MENU.getSize().y);
